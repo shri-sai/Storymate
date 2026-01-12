@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryMate - Video Stories</title>
+  <link rel="stylesheet" href="/static/css/videos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background shapes (same theme as dashboard) -->
+  <div class="bg-shape s1"></div>
+  <div class="bg-shape s2"></div>
+  <div class="bg-shape s3"></div>
+  <div class="bg-shape s4"></div>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">StoryMate</div>
+      <ul class="nav-links">
+        <li><a href="/dashboard.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Genre</a>
+          <ul class="dropdown-content" id="genreDropdown"></ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Reading List</a>
+          <ul class="dropdown-content" id="readingListDropdown"></ul>
+        </li>
+
+        <li><a href="/videos.html" class="active">Video Stories</a></li>
+
+        <li> 
+          <a href="/list_of_etiquettes.html">Etiquettes</a>
+        </li>
+
+        <li><a href="/dashboard.html#completedStories">Completed Stories</a></li>
+      </ul>
+
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+  <!-- ===== Video Stories Page ===== -->
+  <main class="container">
+
+    <section class="video-section">
+
+      <!-- Long Videos -->
+      <div class="video-category">
+        <h1>Long Videos</h1>
+        <div class="story-grid" id="longGrid">
+          <!-- JS will inject long video cards here -->
+
+         </div>
+      </div>
+
+      <!-- Short Videos -->
+      <div class="video-category">
+        <h1>Shorts</h1>
+        <div class="story-grid" id="shortGrid">
+          <!-- JS will inject short video cards here -->
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/static/js/videos.js"></script>
+</body>
+</html>

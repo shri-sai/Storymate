@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StoryMate – Story</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/story.css"/>
+</head>
+<body>
+
+  <!-- Background Shapes -->
+  <div class="bg-shape s1"></div>
+  <div class="bg-shape s2"></div>
+  <div class="bg-shape s3"></div>
+  <div class="bg-shape s4"></div>
+
+  <!-- Header -->
+  <header class="site-header glass">
+    <div class="logo">
+      <span class="logo-badge">SM</span>
+      <span>StoryMate</span>
+    </div>
+    <nav>
+      <a href="/dashboard.html" class="nav-link">Home</a>
+      <a href="/login.html" class="nav-link" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Story Container -->
+  <main class="container">
+    <section class="story-card glass">
+      <div class="story-hero">
+        <img id="storyImage" src="" alt="Story Cover" class="cover"/>
+        <div class="story-headings">
+          <h1 class="title" id="storyTitle">Loading...</h1>
+          <p class="meta" id="storyMeta"></p>
+          <!-- Play Audio Button -->
+          <button class="btn secondary" id="playAudioBtn">
+            <i class="fa-solid fa-volume-up"></i> Play Audio
+          </button>
+          <audio id="storyAudio" src=""></audio>
+
+          <!-- Translate Button -->
+          <button class="btn secondary" id="translateBtn">
+            <i class="fa-solid fa-language"></i> Translate to Tamil
+          </button>
+
+        </div>
+      </div>
+
+      <article class="story-text" id="storyContent">
+        <!-- story text will be injected here -->
+      </article>
+
+      <!-- Actions Row -->
+<div class="actions-row">
+  <!-- Save to Reading List -->
+  <section class="save-to-list">
+    <button class="btn secondary" id="saveListBtn">
+      <i class="fa-solid fa-bookmark"></i> Save to Reading List
+    </button>
+    <div id="readingListPanel" class="reading-list-panel hidden">
+      <ul id="listOptions"></ul>
+    </div>
+  </section>
+
+  <!-- Completed Button -->
+  <button class="btn primary" id="markCompletedBtn">
+    <i class="fa-solid fa-check"></i> Mark as Complete
+  </button>
+</div>
+
+
+      <!-- Feedback -->
+      <section class="feedback">
+        <h2 class="section-title">Your Feedback</h2>
+        <div class="reactions">
+          <button class="btn ghost" id="likeBtn" title="Like"><i class="fa-regular fa-thumbs-up"></i></button>
+          <button class="btn ghost" id="dislikeBtn" title="Dislike"><i class="fa-regular fa-thumbs-down"></i></button>
+          <button class="btn ghost" id="loveBtn" title="Love"><i class="fa-regular fa-heart"></i></button>
+          <button class="btn ghost" id="reportBtn" title="Report"><i class="fa-regular fa-flag"></i></button>
+        </div>
+      </section>
+    </section>
+    <section class="comment-box">
+                <h2 class="section-title">Leave a Comment</h2>
+                <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+                <button class="btn primary" id="submitCommentBtn">Submit Comment</button>
+            </section>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toastStack" class="toast-stack"></div>
+
+  <!-- Popups for feedback (dislike / report) -->
+  <div id="dislikePopup" class="popup hidden">
+    <div class="popup-content">
+      <h3>Why did you dislike this story?</h3>
+      <textarea id="dislikeComment" placeholder="Optional comment..."></textarea>
+      <div class="popup-actions">
+        <button id="dislikeSubmit">Submit</button>
+        <button class="closePopup">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reportPopup" class="popup hidden">
+    <div class="popup-content">
+      <h3>Why are you reporting this story?</h3>
+      <textarea id="reportComment" placeholder="Optional comment..."></textarea>
+      <div class="popup-actions">
+        <button id="reportSubmit">Submit</button>
+        <button class="closePopup">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Save to Reading List Popup -->
+<div id="listPopup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Save to Reading List</h3>
+    <ul id="popupListOptions" class="list-collection"></ul>
+
+    <div id="newListForm" class="hidden" style="margin-top:15px;">
+  <input type="text" id="newListName" placeholder="Enter new list name..." />
+  <div class="popup-actions">
+    <button id="createListConfirm" class="btn primary">Create</button>
+  </div>
+</div>
+
+
+    <div class="popup-actions">
+      <button class="closePopup">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- quiz pop up -->
+ <div id ="Quizpopup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Do you want to take a short quiz? 🤔</h3>
+    <div class="popup-actions">
+      <button id="YesButton" class="btn primary">Yes</button>
+      <button id="NoButton" class="btn primary">No</button>
+    </div>
+  </div>
+ </div>
+
+
+  <script src="/static/js/story.js"></script>
+</body>
+</html>

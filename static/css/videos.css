@@ -1,0 +1,455 @@
+/* ===== Base & Background ===== */
+:root {
+  --bg1: #7abeff;
+  --bg2: #b88dff;
+  --pink: #ff91c4;
+  --yellow: #ffeb95;
+  --green: #82e88a;
+  --purple: #9b59b6;
+  --danger: #ff8080;
+  --text: #3d4a68;
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: radial-gradient(1000px 500px at 10% -10%, #a2d2ff 0%, transparent 60%),
+              radial-gradient(800px 400px at 110% 10%, #ffc2e6 0%, transparent 55%),
+              linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Playful Floating Shapes */
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(4px);
+  border-radius: 50%;
+  animation: float 20s linear infinite;
+}
+
+.s1 {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  left: -60px;
+  background: var(--yellow);
+}
+
+.s2 {
+  width: 380px;
+  height: 380px;
+  top: 15%;
+  right: -120px;
+  background: var(--pink);
+}
+
+.s3 {
+  width: 200px;
+  height: 200px;
+  bottom: 15%;
+  left: 10%;
+  background: #90d7ff;
+}
+
+.s4 {
+  width: 150px;
+  height: 150px;
+  bottom: -40px;
+  right: 20%;
+  background: #80ffc0;
+  border-radius: 30px;
+  transform: rotate(25deg);
+}
+
+/* Floating animation reused */
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+
+/* ===== Header / Nav Bar ===== */
+.main-header {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff6b81;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #3a86ff;
+}
+
+.logout-btn {
+  background: #ff6b81;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.logout-btn:hover {
+  background: #ff4d6d;
+}
+
+.back-btn-container {
+  text-align: center;
+  margin: 20px 0 40px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3a86ff;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #265dbe;
+}
+
+
+/* ===== Hero Story (for dashboard, safe to keep here too) ===== */
+.hero-story {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.hero-meta {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.hero-rating {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ff9f1c;
+}
+
+.hero-blurb {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #3a86ff;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background: #265dbe;
+}
+
+/* ===== Story Sections ===== */
+.story-list-section {
+  width: 90%;
+  margin: 60px auto;
+}
+
+.story-list-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.story-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* ===== Story Cards ===== */
+.story-card {
+  position: relative;
+  flex: 0 0 250px;
+  height: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: #fff;
+  transition: transform 0.3s ease;
+}
+.story-card:hover {
+  transform: translateY(-8px);
+}
+
+.story-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  color: #fff;
+  transform: translateY(60%);
+  transition: transform 0.4s ease;
+}
+
+.story-card:hover .card-overlay {
+  transform: translateY(0);
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  margin: 0 0 5px;
+}
+
+.card-details {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.card-blurb {
+  margin-bottom: 8px;
+}
+.card-meta {
+  font-size: 0.75rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+/* Dropdown links */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: #f0f0f0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ========================================================= */
+/* ===== VIDEO CARDS (specific to videos.html) ============= */
+/* ========================================================= */
+
+.video-category h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  padding-left: 20px;   /* ✅ pushes heading inside, aligned with grid */
+  color: var(--text);
+}
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  flex: 0 0 300px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Long videos: 16:9 */
+#longGrid .video-card {
+  aspect-ratio: 16 / 9;
+  max-width: 600px;
+  flex: 0 0 auto;
+  padding-left: 20 px;
+}
+
+/* Shorts: 9:16 */
+#shortGrid .video-card {
+  aspect-ratio: 9 / 16;
+  max-width: 300px;
+  flex: 0 0 auto;
+}
+
+/* ===== Video Hover Overlay ===== */
+.video-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.video-card:hover .video-overlay {
+  transform: translateY(0);
+}
+
+.video-overlay .video-blurb {
+  margin-bottom: 6px;
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.video-overlay .video-meta {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== VIDEO PLAYER PAGE ===== */
+/* ===== VIDEO PLAYER PAGE ===== */
+.video-player {
+  max-width: 1100px;         /* wider for demo */
+  margin: 50px auto;
+  text-align: center;
+}
+
+.video-player h1 {
+  font-size: 2.5rem;          /* bigger */
+  font-weight: 900;           /* bold */
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;          /* cap width */
+  margin: 0 auto 30px;
+  aspect-ratio: 16 / 9;       /* keeps proper video ratio */
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* nice soft shadow */
+  border: 3px solid #3a86ff;  /* neat border */
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;             /* always visible now */
+}

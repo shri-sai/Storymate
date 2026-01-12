@@ -1,0 +1,218 @@
+/* ===== Base & Background ===== */
+:root {
+  --bg1: #7abeff;
+  --bg2: #b88dff;
+  --pink: #ff91c4;
+  --yellow: #ffeb95;
+  --green: #82e88a;
+  --purple: #9b59b6;
+  --danger: #ff8080;
+  --text: #3d4a68;
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: radial-gradient(1000px 500px at 10% -10%, #a2d2ff 0%, transparent 60%),
+              radial-gradient(800px 400px at 110% 10%, #ffc2e6 0%, transparent 55%),
+              linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Playful Floating Shapes */
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(4px);
+  border-radius: 50%;
+  animation: float 20s linear infinite;
+}
+
+.s1 {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  left: -60px;
+  background: var(--yellow);
+}
+
+.s2 {
+  width: 380px;
+  height: 380px;
+  top: 15%;
+  right: -120px;
+  background: var(--pink);
+}
+
+.s3 {
+  width: 200px;
+  height: 200px;
+  bottom: 15%;
+  left: 10%;
+  background: #90d7ff;
+}
+
+.s4 {
+  width: 150px;
+  height: 150px;
+  bottom: -40px;
+  right: 20%;
+  background: #80ffc0;
+  border-radius: 30px;
+  transform: rotate(25deg);
+}
+
+/* Floating animation reused */
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0); }
+  50%  { transform: translateY(-40px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+
+
+
+
+/* ================ NAVIGATION BAR ==========================*/
+
+.main-header {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  height: 70px;    
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff6b81;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #3a86ff;
+}
+
+.logout-btn {
+  background: #ff6b81;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.logout-btn:hover {
+  background: #ff4d6d;
+}
+
+/* ============ NAVIGATION BAR COMPLETED =================*/
+
+
+/*============== LIST OF ETIQUETTES PAGE =================*/
+
+
+/* this is for the heading in the page*/
+.etiquette-list h1 {
+  font-size: 40px;
+  text-align: left;
+  margin: 20px 0 20px 20px; /* top, right, bottom, left */
+}
+
+/* space below the nav bar */
+.etiquette-list {
+  margin-top: 20px; 
+}
+
+
+/* container that holds all cards */
+.etiquette-grid {
+  display: flex;
+  gap: 20px;               
+  flex-wrap: wrap;        
+  justify-content: left;
+  align-items: flex-start; 
+  padding: 20px;
+}
+
+/* each etiquette card */
+.etiquette-card {
+  width: 300px;
+  height: 500px;
+  border-radius: 20px;  
+  overflow: hidden;
+  position: relative;  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5); 
+
+}
+
+/*when hovered, a shadow will appear */
+.etiquette-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.50); 
+  transform: translateY(-5px); 
+  transition: all 0.3s ease; 
+}
+
+
+
+.etiquette-card img {
+  position: absolute;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+  border-radius: 20px;  
+  display: block;
+}
+
+/* title for each card*/
+.etiquette-card h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  background: rgba(0,0,0,0.4); 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StoryMate - Video Stories</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background shapes (kept from your theme) -->
+  <div class="bg-shape s1"></div>
+  <div class="bg-shape s2"></div>
+  <div class="bg-shape s3"></div>
+  <div class="bg-shape s4"></div>
+
+  <!-- ===== Header / Nav (re-uses your classes & theme) ===== -->
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">StoryMate</div>
+      <ul class="nav-links">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Genre</a>
+          <ul class="dropdown-content" id="genreDropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Reading List</a>
+          <ul class="dropdown-content" id="readingListDropdown"></ul>
+        </li>
+
+        <!-- Insert Video Stories between Reading List and Completed Stories -->
+        <li><a href="#" data-page="videos" class="nav-link">Video Stories</a></li>
+
+        <li><a href="#" data-scroll="#completedStories" class="nav-link">Completed Stories</a></li>
+      </ul>
+
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+  <!-- ===== Pages (SPA sections) ===== -->
+  <main>
+    <!-- Home Page -->
+    <section id="home" class="page active">
+      <section class="hero-story">
+        <h1 class="hero-title">The Magical Treehouse Adventure</h1>
+        <div class="hero-meta">
+          <span class="author-name">by Alex Ray</span>
+          <span class="dot-separator">•</span>
+          <span class="reading-time">15 min read</span>
+        </div>
+        <div class="hero-rating">★★★★☆</div>
+        <p class="hero-blurb">
+          Join Leo and Mia as they discover a mysterious map that leads them to a world filled with talking animals and sparkling rivers.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary">Start Reading</button>
+        </div>
+      </section>
+
+      <section class="story-list-section">
+        <h2>Continue Reading</h2>
+        <div class="story-grid" id="continueReadingGrid"></div>
+      </section>
+
+      <section class="story-list-section">
+        <h2>Recommended Stories</h2>
+        <div class="story-grid">
+          <!-- your placeholder cards (kept from original) -->
+        </div>
+      </section>
+
+      <section id="completedStories" class="story-list-section">
+        <h2>Completed Stories</h2>
+        <div class="story-grid" id="completedStoriesGrid"></div>
+      </section>
+    </section>
+
+    <!-- Videos Grid Page -->
+    <section id="videos" class="page">
+      <div class="page-header">
+        <button class="back-btn" id="videosBack">&larr; Back</button>
+        <h1>Video Stories</h1>
+      </div>
+
+      <div class="video-category">
+        <h2>Long Videos (&gt; 3 minutes)</h2>
+        <div class="grid" id="longGrid"></div>
+      </div>
+
+      <div class="video-category">
+        <h2>Short Videos (&lt; 3 minutes)</h2>
+        <div class="grid" id="shortGrid"></div>
+      </div>
+    </section>
+
+    <!-- Video Player Page -->
+    <section id="player" class="page">
+      <div class="player-header">
+        <button class="back-btn" id="playerBack">&larr; Back</button>
+      </div>
+
+      <div class="player-wrap">
+        <div class="player-center" id="playerCenter">
+          <!-- iframe inserted by JS -->
+        </div>
+
+        <div class="player-controls bottom-left">
+          <button id="likeBtn" class="icon-btn">👍</button>
+          <button id="dislikeBtn" class="icon-btn">👎</button>
+          <button id="loveBtn" class="icon-btn">❤</button>
+          <button id="reportBtn" class="icon-btn">⚑</button>
+        </div>
+
+        <div class="player-controls bottom-right">
+          <button id="markWatchedBtn" class="mark-btn">Mark as watched</button>
+          <button id="enterFullscreen" class="mark-btn outline">Full screen</button>
+        </div>
+
+        <!-- small transient popup -->
+        <div id="popup" class="popup hidden">Not for me</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+from pydantic import BaseModel
+from uuid import UUID
+
+
+# COMPLETION STATUS
+# This is used when user marks a story as completed
+# We just need to know who (user_id), which story (story_id) and the status
+class CompletionStatusSchema(BaseModel):
+    user_id : UUID
+    story_id : UUID
+    status : str

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storymate - Home</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-shape s1"></div>
+<div class="bg-shape s2"></div>
+<div class="bg-shape s3"></div>
+<div class="bg-shape s4"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">StoryMate</div>
+       <ul class="nav-links">
+  <li><a href="/dashboard.html">Home</a></li>
+
+  <!-- Genre Dropdown -->
+  <li class="dropdown">
+  <a href="#">Genre</a>
+  <ul class="dropdown-content" id="genreDropdown"></ul>
+</li>
+
+  <!-- Reading List (dropdown) -->
+  <li class="dropdown">
+    <a href="#">Reading List</a>
+    <ul class="dropdown-content" id="readingListDropdown">
+      <!-- Reading lists will be injected dynamically -->
+    </ul>
+
+
+  <li> 
+    <a href="/videos.html">Video Stories</a>
+  </li>
+  
+  <li> 
+    <a href="/list_of_etiquettes.html">Etiquettes</a>
+  </li>
+
+  </li>
+    <!-- Completed Stories (same page section) -->
+    <li><a href="#completedStories">Completed Stories</a></li>
+
+</li>
+
+    
+</ul>
+
+
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+ 
+ <!-- ===== Hero Story ===== -->
+<section class="hero-story">
+  <!-- Left side image -->
+  <div class="hero-image">
+    <img src="/static/story_images/leopard-goat.jpeg" alt="Leopard and Goat Story" />
+  </div>
+
+  <!-- Right side content -->
+  <div class="hero-content">
+    <h1 class="hero-title">The Leopard and the Goat</h1>
+    <div class="hero-meta">
+      <span class="author-name">by Alex Ray</span>
+      <span class="dot-separator">•</span>
+      <span class="reading-time">7 min read</span>
+    </div>
+    <div class="hero-rating">★★★★☆</div>
+    <p class="hero-blurb">
+      Leopard was padding through the forest, his golden spots gleaming in the sun. 
+      He sniffed the air. He heard a crunch. There, by a bush, was Goat, happily munching leaves.
+    </p>
+    <div class="hero-actions">
+      <button class="btn btn-primary">Start Reading</button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== Continue Reading ===== -->
+  <section class ="story-list-section">
+    <h2>Continue Reading</h2>
+    <div class="story-grid" id="continueReadingGrid"></div>
+  </section>
+
+  <!-- ===== Recommended Stories ===== -->
+  <section class="story-list-section">
+    <h2>Recommended Stories</h2>
+    <div class="story-grid">
+      <article class="story-card">
+        <img src="/static/story_images/toy.jpg" alt="The Mystery of the Missing Toy">
+        <div class="card-overlay">
+          <div class="card-header"><h3>The Mystery of the Missing Toy</h3></div>
+          <div class="card-details">
+            <p class="card-blurb">A brave detective must find her favorite teddy bear before bedtime.</p>
+            <div class="card-meta">
+              <span>4.7</span>
+              <span>5 min read</span>
+              <span>Jane Doe</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <img src="/static/story_images/fish.jpg" alt="The Girl Who Could Talk to Fish">
+        <div class="card-overlay">
+          <div class="card-header"><h3>The Girl Who Could Talk to Fish</h3></div>
+          <div class="card-details">
+            <p class="card-blurb">An underwater adventure about friendship and courage.</p>
+            <div class="card-meta">
+              <span>4.3</span>
+              <span>12 min read</span>
+              <span>Lina Ray</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <img src="/static/story_images/flying_carpet.jpg" alt="The Flying Carpet Race">
+        <div class="card-overlay">
+          <div class="card-header"><h3>The Flying Carpet Race</h3></div>
+          <div class="card-details">
+            <p class="card-blurb">Soar through the clouds in a race against time and magic!</p>
+            <div class="card-meta">
+              <span>4.5</span>
+              <span>10 min read</span>
+              <span>Chris Lee</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- ===== Completed Stories ===== -->
+<section id="completedStories" class="story-list-section">
+  <h2>Completed Stories</h2>
+  <div class="story-grid" id="completedStoriesGrid">
+    <!-- Completed stories will be injected here by JS -->
+  </div>
+</section>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

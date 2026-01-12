@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Etiquette</title>
+    <link rel="stylesheet" href="/static/css/etiquette_page.css">
+</head>
+<header class="main-header">
+    <nav class="container">
+    <div class="logo">StoryMate</div>
+    <ul class="nav-links">
+        <li> 
+    <a href="/list_of_etiquettes.html">Back</a>
+    </li>
+    </ul>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+
+<body>
+    <div class="hero">
+        <h1><!--title will be inserted --></h1>
+<button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="container">
+            <div class="testimonial">
+            <div class="slide-row" id="slide">
+                <!-- slides will be dynamically inserted here -->
+            </div>
+            </div>
+            <div class="indicator" id="indicatorContainer">
+                <!-- indicator button will be dynamically inserted here-->
+            </div>
+        </div>
+        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>  
+    <!--  Feedback Section -->
+    <section class="feedback glass">
+    <h2 class="section-title">Your Feedback</h2>
+    <div class="reactions">
+        <button class="btn ghost" id="likeBtn" title="Like"><i class="fa-regular fa-thumbs-up"></i></button>
+        <button class="btn ghost" id="dislikeBtn" title="Dislike"><i class="fa-regular fa-thumbs-down"></i></button>
+        <button class="btn ghost" id="loveBtn" title="Love"><i class="fa-regular fa-heart"></i></button>
+        <button class="btn ghost" id="reportBtn" title="Report"><i class="fa-regular fa-flag"></i></button>
+    </div>
+    </section>
+    <!-- end feedback -->
+     <!-- Dislike Popup -->
+<div id="dislikePopup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Tell us why you disliked it</h3>
+    <textarea id="dislikeComment" placeholder="Your feedback..."></textarea>
+    <div class="popup-actions">
+      <button id="dislikeSubmit" class="submit-btn">Submit</button>
+      <button class="closePopup cancel-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Report Popup -->
+<div id="reportPopup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Report an Issue</h3>
+    <textarea id="reportComment" placeholder="Describe the issue..."></textarea>
+    <div class="popup-actions">
+      <button id="reportSubmit" class="submit-btn danger">Submit</button>
+      <button class="closePopup cancel-btn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/static/js/etiquette_page.js" ></script>
+<div id="toastStack"></div>
+</body>
+</html>

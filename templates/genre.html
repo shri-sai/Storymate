@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storymate - Genre</title>
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="bg-shape s1"></div>
+<div class="bg-shape s2"></div>
+<div class="bg-shape s3"></div>
+<div class="bg-shape s4"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="main-header">
+    <nav class="container">
+      <div class="logo">StoryMate</div>
+       <ul class="nav-links">
+        <li><a href="/dashboard.html">Home</a></li>
+
+        <!-- Genre Dropdown -->
+        <li class="dropdown">
+          <a href="#">Genre</a>
+          <ul class="dropdown-content" id="genreDropdown">
+            <!-- Genres will be injected here -->
+          </ul>
+        </li>
+
+        <!-- Reading List (separate page) -->
+        <li class="dropdown">
+          <a href="#">Reading List</a>
+          <ul class="dropdown-content" id="readingListDropdown">
+            <!-- Reading lists will be injected here -->
+          </ul>
+        </li>
+
+        <li> 
+    <a href="/videos.html">Video Stories</a>
+  </li>
+
+        <!-- Completed Stories -->
+        <li><a href="/dashboard.html#completedStories">Completed Stories</a></li>
+      </ul>
+
+      <button class="logout-btn">Logout</button>
+    </nav>
+  </header>
+ 
+  <!-- ===== Genre Stories ===== -->
+  <section class="story-list-section">
+    <h2 id="genreTitle">Genre</h2>
+    <div class="story-grid" id="genreStoriesGrid">
+      <!-- Stories for this genre will be injected dynamically -->
+    </div>
+  </section>
+
+  <script src="/static/js/genre.js"></script>
+</body>
+</html>

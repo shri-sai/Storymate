@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins",  sans-serif;
+  color: var(--text); /* Changed to the darker text color variable */
+  background: radial-gradient(1000px 500px at 10% -10%, #a2d2ff 0%, transparent 60%),
+    radial-gradient(800px 400px at 110% 10%, #ffc2e6 0%, transparent 55%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  overflow-x: hidden;
+  padding: 40px;
+  line-height: 1.6;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center; /* center vertically */
+}
+
+.heading h1{
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.box{
+    padding: 25px;
+    width: 500px;              
+    min-height: 280px;         
+    background: var(--glass);  
+    backdrop-filter: blur(18px);
+    border-radius: 25px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 12px 45px rgba(18, 24, 46, 0.15); 
+    margin-bottom: 30px;
+    
+}
+
+.ques{
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.ans{
+    padding: 5px;
+}
+
+.box1{
+  display: flex;
+  padding: 12px 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.8);   /* soft glassy white */
+  backdrop-filter: blur(10px);            /* subtle blur */
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);  /* keep theme border */
+  color: var(--text);                     /* use theme text color */
+  font-weight: 600;                       /* make answers readable */
+  transition: background 0.3s, transform 0.2s;
+
+}
+
+.box1:active, .box1:hover{
+  background: rgba(255, 255, 255, 1);   /* lighter on hover */
+  transform: translateX(4px);
+}
+
+.box2{
+    padding-left: 8px;
+    flex: 1;                                /* ensures text fills space */
+    color: var(--text); 
+    width: 100%;
+    height: 100%;
+}
+
+.nxt, .tryagain{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #6c5ce7, #8e44ad);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  margin-top: 20px;
+}
+
+.nxt:hover, .tryagain:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.win {
+  display: none; /* hide at start */
+  text-align: center;
+}
+
+.win.active {
+  display: block;
+}
+
+.win h1{
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #d62828; /* rich red */
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Hide the quiz box when wrong answer page shows */
+.win.active ~ .box {
+  display: none;
+}
+
+
+
+
+:root {
+  --bg1: #7abeff;
+  --bg2: #b88dff;
+  --pink: #ff91c4;
+  --yellow: #ffeb95;
+  --green: #82e88a;
+  --purple: #9b59b6;
+  --danger: #ff8080;
+  --text: #3d4a68; /* A darker, child-friendly text color */
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Playful Floating Shapes */
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(4px);
+  border-radius: 50%;
+}

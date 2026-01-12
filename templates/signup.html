@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+  <!-- Floating Shapes -->
+  <div class="bg-shape s1"></div>
+  <div class="bg-shape s2"></div>
+  <div class="bg-shape s3"></div>
+  <div class="bg-shape s4"></div>
+
+  <div class="auth-container glass">
+    <h2 class="auth-title">Create Account ✨</h2>
+    <p class="auth-subtitle">Join and start exploring stories</p>
+
+    <form class="auth-form" onsubmit="return validateForm()">
+      <input type="text" placeholder="Email Id" required>
+      <input type="text" placeholder="User Name" required>
+      
+      <!-- Password -->
+      <div class="password-field">
+        <input type="password" placeholder="Password" id="signupPassword" required>
+        <button type="button" class="toggle-password" onclick="togglePassword('signupPassword', this)">👁️</button>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="password-field">
+        <input type="password" placeholder="Confirm Password" id="signupConfirmPassword" required>
+        <button type="button" class="toggle-password" onclick="togglePassword('signupConfirmPassword', this)">👁️</button>
+      </div>
+
+      <!-- Password Requirements -->
+      <ul class="requirements" id="requirements">
+        <li id="length">At least 8 characters</li>
+        <li id="uppercase">One uppercase letter</li>
+        <li id="lowercase">One lowercase letter</li>
+        <li id="number">One number</li>
+        <li id="special">One special character (!@#$%^&*)</li>
+      </ul>
+
+      <p id="matchError" class="error">Passwords do not match</p>
+
+      <button type="submit" class="btn accent">Sign Up</button>
+
+      <p id="message" class="message"></p>
+
+      <p class="switch-link">Already have an account? 
+        <a href="/login.html">Login</a>
+      </p>
+    </form>
+  </div>
+  <script src="/static/js/signup.js"></script>
+</body>
+</html>

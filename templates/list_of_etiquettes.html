@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryMate - Etiquettes</title>
+  <link rel="stylesheet" href="/static/css/list_of_etiquettes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background shapes (same theme as dashboard) -->
+  <div class="bg-shape s1"></div>
+  <div class="bg-shape s2"></div>
+  <div class="bg-shape s3"></div>
+  <div class="bg-shape s4"></div>
+
+    <!-- ===== Navigation Bar ==== -->
+    <!-- ===== Header ===== -->
+  <header class="main-header">
+    <nav class="container">
+    <div class="logo">StoryMate</div>
+    <ul class="nav-links">
+    <li><a href="/dashboard.html">Home</a></li>
+
+    <!-- Genre Dropdown -->
+    <li class="dropdown">
+    <a href="#">Genre</a>
+    <ul class="dropdown-content" id="genreDropdown"></ul>
+    </li>
+
+    <!-- Reading List (dropdown) -->
+    <li class="dropdown">
+        <a href="#">Reading List</a>
+        <ul class="dropdown-content" id="readingListDropdown">
+        <!-- Reading lists will be injected dynamically -->
+        </ul>
+    </li>
+
+    <!-- video stories button-->
+    <li> 
+        <a href="/videos.html">Video Stories</a>
+    </li>
+
+    <!-- etiquettes button -->
+    <li> 
+    <a href="/list_of_etiquettes.html">Etiquettes</a>
+    </li>
+
+    <!-- Completed Stories (same page section) -->
+    <li>
+        <a href="#completedStories">Completed Stories</a>
+    </li>
+    </ul>
+    <!-- logout button-->
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+  </header>
+  <!-- ======== End of Navigation Bar ======= --->
+
+  <!-- ======== List of Etiquettes ========== --->
+
+  <div class="etiquette-list">
+    <h1> Etiquettes </h1>
+    <div class="etiquette-grid" id="etiquetteGrid">
+        <!-- cards will be inserted dynamically-->
+    </div>
+</div>
+<script src="/static/js/list_of_etiquettes.js"></script>
+  </body>
+  
+  </html>
