@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const res = await fetch(`${API_BASE}/signup`, {
+      const res = await fetch(`${API_BASE}/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       msg.style.display = "block";
 
       // redirect after 2 sec
-        window.location.href = "/login.html";
+        window.location.href = "/templates/login.html";
     } catch (err) {
       const msg = document.getElementById("message");
       msg.textContent = "An error occurred. Please try again later.";
