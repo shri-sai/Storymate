@@ -2,7 +2,7 @@ from app.config.database import Base
 from sqlalchemy import Column, Float, Integer, Boolean, String, Enum, DateTime, ForeignKey, Text, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-from sqlalchemy.types import Date, Time
+from sqlalchemy import Date, Time
 
 
 
