@@ -2,6 +2,7 @@ from app.config.database import Base
 from sqlalchemy import Column, Float, Integer, Boolean, String, Enum, DateTime, ForeignKey, Text, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
+from sqlalchemy.types import Date, Time
 
 
 
@@ -108,4 +109,58 @@ class VideosModel(Base):
     video_type = Column(Enum('long','short', name = 'video'), nullable = False, index = True)
     created_at = Column(DateTime, server_default=func.now(), index=True)
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now(), index=True)
+
+
+# MENTORS TABLE 
+class MentorsModel(Base):
+    __tablename__ = 'mentors'
+    mentor_id  = Column(
+        UUID(as_uuid=True), 
+        primary_key=True, 
+        index=True, 
+        server_default=text("uuid_generate_v4()"))
+    mentor_name = Column(String, nullable = False, index = True)
+    mentor_bio = Column(String, nullable = False, index = True)
+    profile_picture = Column(String, nullable = False, index = True)
+    created_at = Column(DateTime, server_default=func.now(), index=True)
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now(), index=True)
+
+# STORY SESSION TABLE
+class StorySessionModel(Base):
+    __tablename__ = 'story_session'
+    session_id = Column(
+        UUID(as_uuid=True), 
+        primary_key=True, 
+        index=True, 
+        server_default=text("uuid_generate_v4()"))
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
+    mentor_id = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
+    session_date = Column(Date, nullable = False)
+    session_time = Column(Time, nullable = False)
+    max_capacity = Column(Integer, nullable = False, server_default='5')
+    created_at = Column(DateTime, server_default=func.now(), index=True)
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now(), index=True)
+    created_by = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
+    updated_by = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
+
+    
+# SESSION FEEDBACK TABLE
+class SessionFeedbackModel(Base):
+    __tablename__ = 'session_feedback'
+    feedback_id = Column(
+        UUID(as_uuid=True), 
+        primary_key=True, 
+        index=True, 
+        server_default=text("uuid_generate_v4()"))
+    session_id = Column(UUID(as_uuid=True), ForeignKey("story_session.session_id"), nullable=False, index=True)
+    mentor_id = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
+    story_title = Column(String, nullable = False, index = True)
+    feedback = Column(String, nullable = False, index = True)
+    grade = Column(String, nullable = False, index = True)
+    created_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
+    updated_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
+
+
+
 
