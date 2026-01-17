@@ -49,7 +49,7 @@ class SessionBookOutputSchema(BaseModel):
 # This schema is used when a mentor gives feedback to a user for a session
 class SessionFeedbackSchema(BaseModel):
     session_id : UUID
-    mentor_id : UUID
+    user_id : UUID
     story_title : str
     feedback : str
     grade : str

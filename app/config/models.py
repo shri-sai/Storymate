@@ -158,6 +158,8 @@ class SessionFeedbackModel(Base):
     story_title = Column(String, nullable = False, index = True)
     feedback = Column(String, nullable = False, index = True)
     grade = Column(String, nullable = False, index = True)
+    created_at = Column(DateTime, server_default=func.now())
+    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
     created_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
     updated_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
 

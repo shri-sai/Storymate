@@ -3,6 +3,7 @@ from fastapi import HTTPException, status
 from app.config.models import MentorsModel,StorySessionModel,SessionFeedbackModel
 from .session_models import MentorSchema,SessionBookSchema,SessionBookOutputSchema,SessionFeedbackSchema,SessionFeedbackOutputSchema
 from uuid import UUID
+from datetime import date
 
 class StorySessionService:
     """
@@ -52,6 +53,20 @@ class StorySessionService:
     )
         if not session:
             return None
+        
+        if session.mentor_id != mentor_id:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="You are not authorized to give feedback for this session"
+            )
+        
+        existing_feedback = (
+        self.db.query(SessionFeedbackModel)
+        .filter(SessionFeedbackModel.session_id == data.session_id)
+        .first()
+    )
+        if existing_feedback:
+            return {"detail": "Feedback already given for this session"}
         
         new_feedback = SessionFeedbackModel(
             session_id=data.session_id,
