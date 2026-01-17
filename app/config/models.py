@@ -142,6 +142,9 @@ class StorySessionModel(Base):
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now(), index=True)
     created_by = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
     updated_by = Column(UUID(as_uuid=True), ForeignKey("users.user_id"), nullable=False, index=True)
+    status = Column(String, nullable=False, server_default='booked')
+    completion_status = Column(Boolean, server_default='false', nullable=False)
+
 
     
 # SESSION FEEDBACK TABLE
@@ -162,7 +165,5 @@ class SessionFeedbackModel(Base):
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
     created_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
     updated_by = Column(UUID(as_uuid=True), ForeignKey("mentors.mentor_id"), nullable=False, index=True)
-
-
-
+    
 

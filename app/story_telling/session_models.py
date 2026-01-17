@@ -27,6 +27,12 @@ class SessionBookSchema(BaseModel):
         from_attributes = True
 #---------------------------------------#
 
+# Mark Session Complete Schema
+# This schema is used when a mentor marks a session as complete
+class MarkSessionCompleteSchema(BaseModel):
+    session_id: UUID
+
+#---------------------------------------#
 
 # Session Book output Schema
 # This schema is used to view the booked session details
@@ -59,19 +65,40 @@ class SessionFeedbackSchema(BaseModel):
 
 #---------------------------------------#
 
-
-# Session Feedback output Schema
-# This schema is used to view the session feedback details
-class SessionFeedbackOutputSchema(BaseModel):
-    feedback_id : UUID
-    session_id : UUID
-    mentor_id : UUID
-    user_id : UUID
-    story_title : str
-    feedback : str
-    grade : str
-    created_at : datetime
-    updated_at : datetime
+# Upcoming Session Schema
+# This schema is used to view the upcoming session details
+class UpcomingSessionSchema(BaseModel):
+    session_id: UUID
+    session_date: date
+    session_time: time
+    mentor_id: UUID
+    mentor_name: str
+    mentor_profile_picture: str
 
     class Config:
         from_attributes = True
+
+#---------------------------------------#
+
+# Past Session Schema
+# This schema is used to view the past session details along with feedback for that sesssion
+class PastSessionSchema(BaseModel):
+    session_id: UUID
+    session_date: date
+    session_time: time
+
+    mentor_id: UUID
+    mentor_name: str
+    mentor_profile_picture: str
+
+    story_title: str
+    feedback: str
+    grade: str
+
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+#---------------------------------------#
