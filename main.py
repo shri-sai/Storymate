@@ -20,3 +20,6 @@ app.include_router(auth_router)
 
 from app.story_telling.session_routes import router as session_router
 app.include_router(session_router)
+
+from app.genres.genres_routes import router as genres_router
+app.include_router(genres_router)
